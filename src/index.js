@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
+import ErrorMessage from './ErrorMessage';
 import 'semantic-ui-css/semantic.min.css';
 import Loader from './Loader';
 
@@ -16,7 +17,7 @@ class App extends React.Component {
 
   renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
-      return <div>Error: {this.state.errorMessage}</div>;
+      return <ErrorMessage error={this.state.errorMessage} />;
     }
 
     if (!this.state.errorMessage && this.state.lat) {
